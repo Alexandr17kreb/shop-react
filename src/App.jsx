@@ -11,16 +11,18 @@ import { Header } from './components/Header'
 import { CartPage } from './pages/CartPage'
 
 import { Home } from './pages/Home'
-
+import { ProductDetail } from './pages/ProductDetail'
  
 
 export const App = () => {
 
   const [cartItems, setCartItems] = useState([])
 
- 
+  const addToCart = (product) => {
+    setCartItems(prev => [...prev, product])
+  }
 
-  const onRemove = id => {
+  const onRemove = (id) => {
 
     setCartItems(prev => prev.filter(item => item.id !== id))
 
@@ -38,7 +40,7 @@ export const App = () => {
 
         <Routes>
 
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home addToCart={addToCart}/>} />
 
           <Route
 
@@ -48,6 +50,10 @@ export const App = () => {
 
           />
 
+          <Route 
+            path='/product/:id'
+            element={<ProductDetail addToCart={addToCart} />}
+          />
         </Routes>
 
       </main>

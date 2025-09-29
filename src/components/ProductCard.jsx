@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import '../index.css'
  
 
-export const ProductCard = ({ product }) => {
+export const ProductCard = ({ product, addToCart }) => {
 
   return (
 
@@ -33,7 +33,10 @@ export const ProductCard = ({ product }) => {
         Подробнее
 
       </Link>
-
+      <button onClick={()=> addToCart(product)}
+      className='bg-green-500 text-white [x-4 py-2 rounded 
+      hover:bg-green-600'
+      >Добавить корзину</button>
     </div>
 
   )

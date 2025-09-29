@@ -1,9 +1,9 @@
 import { Cart } from '../components/Cart'
 
-export const CartPage = ({cartItem, onRemove}) => {
+export const CartPage = ({cartItems, onRemove}) => {
     return (
         <div className='container mx-auto p-4'>
-            <Cart cartItems={cartItem} onRemove={onRemove}/>
+            <Cart cartItems={cartItems} onRemove={onRemove}/>
         </div>
     )
 }

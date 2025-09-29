@@ -2,7 +2,7 @@ import { ProductCard } from './ProductCard'
 
  
 
-export const ProductList = ({ products }) => {
+export const ProductList = ({ products, addToCart }) => {
 
   return (
 
@@ -10,7 +10,7 @@ export const ProductList = ({ products }) => {
 
       {products.map(product => (
 
-        <ProductCard key={product.id} product={product} />
+        <ProductCard key={product.id} product={product} addToCart={addToCart} />
 
       ))}
 

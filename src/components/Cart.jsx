@@ -11,7 +11,7 @@ export const Cart = ({cartItems,onRemove}) => {
                             key={item.id}
                             className='flex justify-between item-center mb-2'
                         >
-                            <span>{item.tirle}</span>
+                            <span>{item.title}</span>
                             <button 
                             onClick={() => onRemove(item.id)}
                             className='text-red-500'
