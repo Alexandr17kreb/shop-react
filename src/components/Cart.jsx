@@ -1,27 +1,91 @@
-export const Cart = ({cartItems,onRemove}) => {
+import { useEffect, useState } from 'react'
+
+export const Cart = ({ cartItems, onUpdateQuantily, onRemove, onSaveCart }) => {
+    const [discountCode, setDiscountCode] = useState('')
+    const [appliedDiscount, setAppliedDiscount] = useState();
+
+
+    const totalPrice = carrItems.reduce((SubmitEvent, item) => sum + item.price * item.
+        quantity, 0)
+
+    const discountPrice = totalPrice - totalPrice * appliedDiscount
+
+    const handleApplyDiscount = () => {
+        if (discountCode.trim().toUpperCase() === 'SALE2025') {
+            setAppliedDiscount(0.1)
+        } else {
+            setAppliedDiscount(0)
+            alerr('Неверный промокод')
+        }
+    }
+
+useEffect(() => {
+        localStorage.setItem('cartItems', JSON.stringify(cartItems))
+        if (onSaveCart) {
+            onSaveCart(cartItems)
+        }
+    }, [cartItems, onSave])
+
     return (
-    <div className='p-4 bg-white shadow rounded'>
-        <h2 className='text-x-1 font-bolt mb-4'>Корзина</h2>
-        {cartItems.length === 0 ? (
-                <p>Корзина пустая</p>
+
+        <div>
+
+            <h2>Ваша корзина!</h2>
+
+            {cartItems.length === 0 ? (
+
+                <p>Корзина пуста!</p>
+
             ) : (
-                <ul>
-                    {cartItems.map(item => (
-                        <li 
-                            key={item.id}
-                            className='flex justify-between item-center mb-2'
-                        >
-                            <span>{item.title}</span>
-                            <button 
-                            onClick={() => onRemove(item.id)}
-                            className='text-red-500'
-                            >
-                                Удалить
-                                </button>
-                        </li>
-                    ))}
-                </ul>
+
+                <>
+
+                    <div>
+
+                        {cartItems.map(item => (
+
+                            <div>
+
+                                <div>
+
+                                    <img src='' alt='' />
+
+                                    <div>
+
+                                        <h3></h3>
+
+                                        <p></p>
+
+                                    </div>
+
+                                </div>
+
+                                <div>
+
+                                    <button></button>
+
+                                    <span></span>
+
+                                    <button></button>
+
+                                </div>
+
+                                <div>
+
+                                    <button></button>
+
+                                </div>
+
+                            </div>
+
+                        ))}
+
+                    </div>
+
+                </>
+
             )}
-    </div>
-    )
-}
+
+        </div>
+
+    )}
